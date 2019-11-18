@@ -5,11 +5,14 @@
 <head>
 	<meta charset="UTF-8" />
 	<title>Document</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	 <script src="<%=application.getContextPath()%>/resources/js/router.js"></script>
 	<script src="<%=application.getContextPath()%>/resources/js/app.js"></script>
 </head>
 <body>
+<div id="wrapper"></div>
 	<script>
-	app.init()
+	app.run('<%=application.getContextPath()%>')
 	</script>
 </body>
 </html>
