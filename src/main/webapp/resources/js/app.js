@@ -1,7 +1,7 @@
 var app = app || {}
 app = (()=>{
 	let _,js
-	let init =x=>{
+	let init =()=>{
 		_=$.ctx()
 		js=$.js()
 	}
@@ -46,22 +46,45 @@ app = (()=>{
 			})
 			.appendTo('#left')
 			.click(function() {
+				$(this).css({'background-color':'yellow'})
+				$(this).siblings().css({'background-color':'white'})
 				alert($(this).text()+'클릭')
 				_ = $.ctx()
 				switch ($(this).text()) {
-				
 				case 'NAVER':
-					$.getJSON(_+'/crawls/naver',d=>{})
+					$('#right').empty()
+					$.getJSON(_+'/crawls/naver',d=>{
+						$.each(d,(i,j)=>{
+							$('<div/>')
+							.html('<h1>'+j.origin+'</h1><h4>'+j.teans+'</h4>')
+							.css({width: '40%',
+					              height: '40%',
+					              border: '3px solid red',
+					              float:'left'})
+							.appendTo('#right')
+						})
+					})
 					break;
 				case 'CGV':
-					$.getJSON(_+'/crawls/CGV',d=>{})
+					$('#right').empty()
+					$.getJSON(_+'/crawls/cgv',d=>{
+						$.each(d,(i,j)=>{
+							$('<div/>')
+							.html('<h4>'+'<img style="width:200px;" src="'+j.image+'"></h4>'+'<h3>'+j.title+'</h3><h4>'+j.percent+'</h4>'+j.info)
+							.css({
+					              border: '3px solid red',
+					              float:'left'})
+							.appendTo('#right')
+						})
+					})
 					break;
 				case 'BUGS':
-					$.getJSON(_+'/crawls/BUGS',d=>{})
+					$.getJSON(_+'/crawls/bugs',d=>{})
 					break;
 				}
 			})
 		})
 	}
+	
 	return {run}
 })()
