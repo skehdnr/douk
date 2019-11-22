@@ -14,7 +14,7 @@ app = (()=>{
 		)
 		.done(()=>{
 			init()
-			onCreate()
+			onCreate().css({})
 		})
 		.fail(()=>{
 			alert('fail')
@@ -71,7 +71,7 @@ app = (()=>{
 							.css({width: '40%',
 					              height: '40%',
 					              border: '3px solid red',
-					              float:'left'})
+					              float:'left','text-align' : 'center'})
 							.appendTo('#right')
 						})
 					})
@@ -81,10 +81,10 @@ app = (()=>{
 						$('#right').empty()
 						$.each(d,(i,j)=>{
 							$('<div/>')
-							.html('<h4>'+'<img style="width:200px;" src="'+j.image+'"></h4>'+'<h3>'+j.title+'</h3><h4>'+j.percent+'</h4>'+j.info)
+							.html('<h4><img style="width:200px;" src="'+j.image+'"></h4>'+'<h3>'+j.title+'</h3><h4>'+j.percent+'</h4>'+j.info)
 							.css({
 					              border: '3px solid red',
-					              float:'left'})
+					              float:'left','text-align' : 'center'})
 							.appendTo('#right')
 						})
 					})
@@ -157,7 +157,7 @@ app = (()=>{
 			              border: '1px solid black','text-align' : 'center'})
 			   .appendTo('#pagination')
 			   .click(()=>{
-				   alert('dddddddddddd')
+				   alert('다음페이지')
 				   app.list(pager.nextBlock)
 			   })
 		   }
