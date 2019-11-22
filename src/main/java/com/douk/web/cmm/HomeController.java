@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import com.douk.web.pxy.Box;
 import com.douk.web.pxy.ContextProxy;
 import com.douk.web.pxy.Proxy;
-import com.douk.web.usr.UserMapper;
 
 /**
  * Handles requests for the application home page.
@@ -21,7 +20,7 @@ import com.douk.web.usr.UserMapper;
 public class HomeController {
 	
 	private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
-	@Autowired UserMapper userMapper;
+	//@Autowired UserMapper userMapper;
 	@Autowired ContextProxy ctx;
 	@Autowired Proxy pxy;
 	
@@ -29,7 +28,7 @@ public class HomeController {
 	public String home(Locale locale, Model model) {
 		logger.info("Welcome home! @@@", locale);
 		
-		int rowCount = userMapper.rowCount();
+		int rowCount = 0;
 		logger.info("rowCount : "+rowCount);
 		pxy.printer("rowCount ! "+rowCount);
 		

@@ -1,29 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0
-          http://maven.apache.org/xsd/maven-4.0.0.xsd">
-	<modelVersion>4.0.0</modelVersion>
-	<groupId>com.wego</groupId>
-	<artifactId>web</artifactId>
-	<name>wego</name>
-	<packaging>war</packaging>
-	<version>1.0.0-BUILD-SNAPSHOT</version>
-	<contributors>
-		<contributor>
-			<name>Na Do-Uk</name>
-			<email>skehdnr1@gmail.com</email>
-		</contributor>
-	</contributors>
-	<properties>
+<project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd" xmlns="http://maven.apache.org/POM/4.0.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>com.wego</groupId>
+    <artifactId>web</artifactId>
+    <name>wego</name>
+    <packaging>war</packaging>
+    <version>1.0.0-BUILD-SNAPSHOT</version>
+        <contributors>
+    <contributor>
+        <name>Na Do-Uk</name>
+        <email>skehdnr1@gmail.com</email>
+        </contributor>
+    </contributors>
+   <properties>
 		<java-version>1.8</java-version>
 		<spring-version>5.0.7.RELEASE</spring-version>
 		<aspectj-version>1.6.10</aspectj-version>
 		<slf4j-version>1.6.6</slf4j-version>
 		<lombok-version>1.18.8</lombok-version>
-		<servlet-version>3.1.0</servlet-version>
+		<servlet-version>2.5</servlet-version>
 		<jsp-version>2.1</jsp-version>
 		<jstl-version>1.2</jstl-version>
-		<junit-version>4.10</junit-version>
+		<junit-version>4.7</junit-version>
 		<log4j-version>1.2.15</log4j-version>
 		<inject-version>1</inject-version>
 		<mysql-version>8.0.15</mysql-version>
@@ -31,8 +30,6 @@
 		<mybatis-spring-version>1.3.2</mybatis-spring-version>
 		<jackson-version>2.9.8</jackson-version>
 		<jsoup-version>1.12.1</jsoup-version>
-		<mockito-version>1.9.0</mockito-version>
-		<mariadb-version>2.4.0</mariadb-version>
 	</properties>
 	<dependencies>
 		<!-- Spring -->
@@ -143,7 +140,7 @@
 		<!-- Servlet -->
 		<dependency>
 			<groupId>javax.servlet</groupId>
-			<artifactId>javax.servlet-api</artifactId>
+			<artifactId>servlet-api</artifactId>
 			<version>${servlet-version}</version>
 			<scope>provided</scope>
 		</dependency>
@@ -170,13 +167,6 @@
 		    <artifactId>mysql-connector-java</artifactId>
 		    <version>${mysql-version}</version>
 		</dependency>
-		<!-- https://mvnrepository.com/artifact/org.mariadb.jdbc/mariadb-java-client -->
-		<dependency>
-		    <groupId>org.mariadb.jdbc</groupId>
-		    <artifactId>mariadb-java-client</artifactId>
-		    <version>${mariadb-version}</version>
-		</dependency>
-		
 		<dependency>
 		    <groupId>org.mybatis</groupId>
 		    <artifactId>mybatis</artifactId>
@@ -187,7 +177,12 @@
 		    <artifactId>mybatis-spring</artifactId>
 		    <version>${mybatis-spring-version}</version>
 		</dependency>
-
+		<!-- https://mvnrepository.com/artifact/com.zaxxer/HikariCP -->
+		<dependency>
+		    <groupId>com.zaxxer</groupId>
+		    <artifactId>HikariCP</artifactId>
+		    <version>3.4.1</version>
+		</dependency>
 		
 		<!-- Jackson -->
 		<dependency>
@@ -206,10 +201,39 @@
 		    <version>${jackson-version}</version>
 		</dependency>
 	
+		<!-- Test -->
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>${junit-version}</version>
+			<scope>test</scope>
+		</dependency> 
+		
+		<dependency>
+          <groupId>org.springframework.security</groupId>
+          <artifactId>spring-security-web</artifactId>
+          <version>${spring-version}</version>
+      </dependency>
+      <dependency>
+          <groupId>org.springframework.security</groupId>
+          <artifactId>spring-security-config</artifactId>
+          <version>${spring-version}</version>
+      </dependency>
+      <dependency>
+          <groupId>org.springframework.security</groupId>
+          <artifactId>spring-security-core</artifactId>
+          <version>${spring-version}</version>
+      </dependency>
+      <dependency>
+          <groupId>org.springframework.security</groupId>
+          <artifactId>spring-security-taglibs</artifactId>
+          <version>${spring-version}</version>
+      </dependency>
+		<!-- https://mvnrepository.com/artifact/org.springframework/spring-test -->
 		<dependency>
 		    <groupId>org.springframework</groupId>
 		    <artifactId>spring-test</artifactId>
-		    <version>${spring-version}</version>
+		    <version>5.0.2.RELEASE</version>
 		    <scope>test</scope>
 		</dependency>
 		<!-- https://mvnrepository.com/artifact/org.jsoup/jsoup -->
@@ -217,17 +241,6 @@
 		    <groupId>org.jsoup</groupId>
 		    <artifactId>jsoup</artifactId>
 		    <version>${jsoup-version}</version>
-		</dependency>
-		<dependency>
-		<groupId> junit</groupId >
-		<artifactId> junit</artifactId >
-		<version>${junit-version}</version>
-		<scope> test</scope>
-		</dependency>
-		<dependency>
-		<groupId> org.mockito</groupId >
-		<artifactId> mockito-all</artifactId >
-		<version>${mockito-version}</version>
 		</dependency>
 		       
 	</dependencies>

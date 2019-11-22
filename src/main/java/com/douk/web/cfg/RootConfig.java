@@ -9,15 +9,16 @@ import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.beans.factory.annotation.Configurable;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
+import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Import;
 import org.springframework.jdbc.datasource.DataSourceTransactionManager;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
 
 @Import({ServletConfig.class,MyBatisConfig.class})
-@Configurable
+@Configuration
 @ComponentScan(basePackages= {"com.douk.web"})
 public class RootConfig {
-	 @Bean(name="dataSource")
+	 @Bean
 	 public DataSource dataSource() {
 			
 			  DriverManagerDataSource dataSource = new DriverManagerDataSource();

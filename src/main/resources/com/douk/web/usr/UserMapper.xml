@@ -8,4 +8,9 @@
     FROM USER
    
    </select>
+   <select id="selectAll" resultType="User" >
+    SELECT *
+    FROM USER
+ 	WHERE UID LIKE '0%'  
+   </select>
    </mapper>
